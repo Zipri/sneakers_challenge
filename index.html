@@ -10,78 +10,93 @@
 <body>
 <div class="main_container">
   <!-- =============== Header =============== -->
-  <header>
-    <div></div>
-    <div>
-      <ul>
-        <li>
+  <header class="header flex flex__center_space_between">
+    <div class="flex flex__gap_large">
+      <div>
+        <img src="assets/images/logo.svg" alt="sneakers logo">
+      </div>
+      <ul class="flex flex__center_space_between flex__gap_medium">
+        <li class="header__nav_item">
           <a href="/">Collections</a>
         </li>
-        <li>
+        <li class="header__nav_item">
           <a href="/">Men</a>
         </li>
-        <li>
+        <li class="header__nav_item">
           <a href="/">Women</a>
         </li>
-        <li>
+        <li class="header__nav_item">
           <a href="/">About</a>
         </li>
-        <li>
+        <li class="header__nav_item">
           <a href="/">Contact</a>
         </li>
       </ul>
     </div>
-    <div>
-      <button></button>
-      <button></button>
+    <div class="flex flex__center_space_between flex__gap_medium">
+      <button>
+        <img src="assets/images/icon-cart.svg" alt="cart">
+      </button>
+      <button class="header__avatar">
+        <img src="assets/images/image-avatar.png" alt="cart">
+      </button>
     </div>
   </header>
+  <hr class="divider">
   <!-- =============== Main =============== -->
-  <main>
+  <main class="main flex flex__center_space_between flex__gap_xl">
     <!-- =============== Slider =============== -->
     <section>
       <div>
-        <!--        <img src="assets/images/image-product-1.jpg" alt="image-product">-->
+        <img src="assets/images/image-product-1.jpg"
+             class="slider__photo_large" alt="image-product">
       </div>
-      <ul>
+      <ul class="slider flex flex__center_space_between">
         <li>
-          <img src="assets/images/image-product-1-thumbnail.jpg" alt="image-product">
+          <img src="assets/images/image-product-1-thumbnail.jpg"
+               class="slider__photo_medium" alt="image-product">
         </li>
         <li>
-          <img src="assets/images/image-product-2-thumbnail.jpg" alt="image-product">
+          <img src="assets/images/image-product-2-thumbnail.jpg"
+               class="slider__photo_medium" alt="image-product">
         </li>
         <li>
-          <img src="assets/images/image-product-3-thumbnail.jpg" alt="image-product">
+          <img src="assets/images/image-product-3-thumbnail.jpg"
+               class="slider__photo_medium" alt="image-product">
         </li>
         <li>
-          <img src="assets/images/image-product-4-thumbnail.jpg" alt="image-product">
+          <img src="assets/images/image-product-4-thumbnail.jpg"
+               class="slider__photo_medium" alt="image-product">
         </li>
       </ul>
     </section>
     <!-- =============== Info =============== -->
     <section>
       <div>
-        <h2>Sneaker Company</h2>
-        <h1>Fall Limited Edition Sneakers</h1>
-        <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole,
+        <h2 class="title_small">Sneaker Company</h2>
+        <h1 class="title_large">Fall Limited Edition Sneakers</h1>
+        <p class="info__text_style">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole,
           they’ll withstand everything the weather can offer.</p>
       </div>
       <div>
-        <div>
-          <div>$125.00</div>
-          <div>50%</div>
+        <div class="flex flex__center flex__gap_small">
+          <div class="info__price_sale">$125.00</div>
+          <div class="info__sale">50%</div>
         </div>
-        <div>
+        <div class="info__price">
           $250.00
         </div>
       </div>
-      <div>
-        <div>
-          <button>-</button>
-          <div>0</div>
-          <button>+</button>
+      <div class="info__btn_section flex flex__center flex__gap_small">
+        <div class="flex flex__center">
+          <button class="info__button_count">-</button>
+          <div class="info__counter">0</div>
+          <button class="info__button_count">+</button>
         </div>
-        <button>Add to cart</button>
+        <button class="info__add_btn">
+          <img src="assets/images/icon-cart-white.svg" alt="Add">
+          Add to cart
+        </button>
       </div>
     </section>
   </main>
