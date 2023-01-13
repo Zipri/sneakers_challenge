@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>E-commerce product page</title>
   <link rel="stylesheet" href="assets/reset.css">
   <link rel="stylesheet" href="assets/styles.css">
@@ -46,9 +48,9 @@
   </header>
   <hr class="divider">
   <!-- =============== Main =============== -->
-  <main class="main flex flex__center_space_between flex__gap_xl">
+  <main class="main flex flex__center_space_between flex__gap_xl flex__wrap">
     <!-- =============== Slider =============== -->
-    <section>
+    <section class="slider__section">
       <div>
         <img src="assets/images/image-product-1.jpg"
              class="slider__photo_large" alt="image-product">
@@ -73,14 +75,14 @@
       </ul>
     </section>
     <!-- =============== Info =============== -->
-    <section>
+    <section class="info__section">
       <div>
         <h2 class="title_small">Sneaker Company</h2>
         <h1 class="title_large">Fall Limited Edition Sneakers</h1>
         <p class="info__text_style">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole,
           they’ll withstand everything the weather can offer.</p>
       </div>
-      <div>
+      <div class="info__price_flex">
         <div class="flex flex__center flex__gap_small">
           <div class="info__price_sale">$125.00</div>
           <div class="info__sale">50%</div>
@@ -89,8 +91,8 @@
           $250.00
         </div>
       </div>
-      <div class="info__btn_section flex flex__center flex__gap_small">
-        <div class="flex flex__center">
+      <div class="info__btn_section flex flex__center flex__gap_small flex__wrap">
+        <div class="info__counter_btns flex flex__center">
           <button class="info__button_count">-</button>
           <div class="info__counter">0</div>
           <button class="info__button_count">+</button>
