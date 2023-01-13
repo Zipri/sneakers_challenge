@@ -78,7 +78,7 @@ button {
   column-gap: 6em;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 /* ---------- slider ----------*/
@@ -238,18 +238,17 @@ button {
 /* ---------- media ----------*/
 
 @media (max-width: 1634px) {
+  .main {
+    padding: 6em 0;
+  }
+}
+
+@media (max-width: 1514px) {
   .main_container {
-    padding: 0 1em;
+    padding: 0 4em;
   }
   .main {
-    padding: 2em 0;
-  }
-  .main_flex {
-    display: flex;
-    column-gap: 6em;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    padding: 6em 0;
   }
 }
 
