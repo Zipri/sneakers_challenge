@@ -37,6 +37,25 @@ button {
   align-items: center;
   padding: 1.8em 0;
   margin-right: 2em;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.header__menu:hover {
+  transform: scale(1.2);
+}
+
+.header__menu_list_item {
+  color: var(---second-them-color);
+  padding: 1em 0;
+  border-top: .2em solid white;
+  border-bottom: .2em solid white;
+  transition: .5s;
+}
+
+.header__menu_list_item:hover {
+  border-bottom: .2em solid var(---first-them-color);
+  border-top: .2em solid var(---first-them-color);
 }
 
 .header__nav_item {
@@ -48,7 +67,6 @@ button {
 
 .header__nav_item:hover {
   border-bottom: .2em solid var(---first-them-color);
-  height: 100%;
 }
 
 .header__cart {
@@ -98,13 +116,19 @@ button {
   padding: 0 2em;
 }
 .slider__arrows__arrow {
+  text-align: center;
   background-color: white;
-  padding: .8em;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
   transition: .5s;
 }
 .slider__arrows__arrow:hover {
   transform: scale(1.2);
+}
+
+.slider__arrows__arrow img {
+  pointer-events: none;
 }
 
 .slider__main_photo {
