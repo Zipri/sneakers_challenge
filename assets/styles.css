@@ -73,6 +73,14 @@ button {
   padding: 6em 4em;
 }
 
+.main_flex {
+  display: flex;
+  column-gap: 6em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* ---------- slider ----------*/
 .slider__photo_large {
   height: var(---slider-size);
@@ -228,6 +236,22 @@ button {
 }
 
 /* ---------- media ----------*/
+
+@media (max-width: 1634px) {
+  .main_container {
+    padding: 0 1em;
+  }
+  .main {
+    padding: 2em 0;
+  }
+  .main_flex {
+    display: flex;
+    column-gap: 6em;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 @media (max-width: 768px) {
   .main_container {
