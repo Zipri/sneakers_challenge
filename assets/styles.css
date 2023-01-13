@@ -127,8 +127,6 @@ button {
   transform: scale(1.2);
 }
 
-
-
 .slider__arrows__arrow img {
   pointer-events: none;
 }
@@ -163,12 +161,42 @@ button {
 }
 
 .slider__active_photo {
-  filter: grayscale(70%);
+  filter: opacity(70%);
   border: .2em solid var(---first-them-color);
 }
 
 .slider__photo_medium:hover {
-  filter: grayscale(70%);
+  filter: opacity(70%);
+}
+
+.slider__close_button {
+  color: var(---first-them-color);
+  font-weight: bold;
+  font-size: 3rem;
+  transition:  .5s;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.slider__close_button:hover {
+  transform: scale(1.3);
+}
+
+.slider__background_all {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: black;
+  opacity: 50%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slider__section_module {
+  position: absolute;
+  top: 30%;
+  left: 30%;
 }
 
 /* ---------- info ----------*/
