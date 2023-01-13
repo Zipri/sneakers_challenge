@@ -127,6 +127,8 @@ button {
   transform: scale(1.2);
 }
 
+
+
 .slider__arrows__arrow img {
   pointer-events: none;
 }
@@ -152,11 +154,17 @@ button {
 }
 
 .slider__photo_medium {
-  transition: .5s;
   border-radius: 1em;
+  transition: .5s;
   width: 7em;
   height: 7em;
   cursor: pointer;
+  border: .2em solid transparent;
+}
+
+.slider__active_photo {
+  filter: grayscale(70%);
+  border: .2em solid var(---first-them-color);
 }
 
 .slider__photo_medium:hover {
