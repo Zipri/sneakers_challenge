@@ -70,6 +70,7 @@ button {
 }
 
 .header__cart {
+    position: relative;
     align-items: center;
     padding: .5em;
     background: transparent;
@@ -343,11 +344,31 @@ button {
 }
 
 .cart__delete_button {
-  transition: .5s;
+    transition: .5s;
 }
 
 .cart__delete_button:hover {
-  transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.cart__empty {
+    color: #737477;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6em;
+}
+
+.cart__pusher {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 2em;
+    height: 1.2em;
+    background-color: var(---first-them-color);
+    border-radius: .5em;
+    position: absolute;
+    top: -10%;
+    right: -20%;
 }
 
 /* ---------- common ----------*/
@@ -506,6 +527,13 @@ button {
 
     .flex__gap_xl {
         column-gap: 0;
+    }
+
+    .cart__window {
+      top: 10%;
+      left: 0;
+      right: 0;
+      width: 100%;
     }
 }
 
