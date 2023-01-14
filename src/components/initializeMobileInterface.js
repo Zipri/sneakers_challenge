@@ -1,13 +1,18 @@
+import {createSliderArrows} from "./common.js";
+
 export default function initializeMobileInterface() {
+  const slider = document.querySelector('.slider__main_photo');
+  const image = slider.querySelector('.slider__photo_large');
+
   if (window.innerWidth <= 768) {
     createHeaderMenu();
-    createSliderArrows();
+    createSliderArrows(slider, image);
   }
   window.addEventListener('resize', function (event) {
     const menu = document.querySelector('.header__menu');
     if (window.innerWidth <= 768 && !menu) {
       createHeaderMenu();
-      createSliderArrows();
+      createSliderArrows(slider, image);
     }
     if (window.innerWidth > 768 && menu) {
       deleteHeaderMenu();
@@ -60,34 +65,6 @@ function createHeaderMenu() {
 function deleteHeaderMenu() {
   const menu = document.querySelector('.header__menu');
   menu.parentNode.removeChild(menu)
-}
-
-function createSliderArrows() {
-  const slider = document.querySelector('.slider__main_photo')
-  let arrows = document.createElement('div');
-  arrows.className = 'slider__arrows';
-  arrows.innerHTML = `
-    <button data-arrow-prev class="slider__arrows__arrow">
-      <img src="assets/images/icon-previous.svg" alt="prev">
-    </button>
-    <button data-arrow-next class="slider__arrows__arrow">
-      <img src="assets/images/icon-next.svg" alt="next">
-    </button>`;
-  slider.prepend(arrows);
-  const image = slider.querySelector('.slider__photo_large');
-  let imageNumber = +image.src.at(-5);
-  arrows.querySelector('button[data-arrow-prev]').addEventListener('click', () => {
-    if (imageNumber > 1) {
-      imageNumber -= 1;
-      image.src = `assets/images/image-product-${imageNumber}.jpg`;
-    }
-  });
-  arrows.querySelector('button[data-arrow-next]').addEventListener('click', () => {
-    if (imageNumber < 4) {
-      imageNumber += 1;
-      image.src = `assets/images/image-product-${imageNumber}.jpg`;
-    }
-  });
 }
 
 function deleteSliderArrows() {

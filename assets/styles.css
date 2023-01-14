@@ -18,7 +18,7 @@ button {
 
 .main_container {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   font-size: 1.5em;
   padding: 0 10em;
 }
@@ -160,14 +160,11 @@ button {
   border: .2em solid transparent;
 }
 
-.slider__active_photo {
-  filter: opacity(70%);
-  border: .2em solid var(---first-them-color);
-}
-
 .slider__photo_medium:hover {
   filter: opacity(70%);
 }
+
+/* ---------- slider module ----------*/
 
 .slider__close_button {
   color: var(---first-them-color);
@@ -175,8 +172,8 @@ button {
   font-size: 3rem;
   transition:  .5s;
   position: absolute;
-  left: 0;
-  top: 0;
+  top: -7%;
+  right: 0;
 }
 
 .slider__close_button:hover {
@@ -187,16 +184,43 @@ button {
   position: absolute;
   left: 0;
   top: 0;
-  background-color: black;
-  opacity: 50%;
+  background-color: rgba(1, 1, 1, .7);
   width: 100vw;
-  height: 100vh;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slider__section_module {
-  position: absolute;
-  top: 30%;
-  left: 30%;
+  position: relative;
+}
+
+.slider__photo_large_module {
+  height: 70vh;
+  border-radius: 1em;
+  margin-bottom: 2em;
+}
+
+.slider_module {
+  width: 67em;
+}
+
+.slider__photo_medium_module {
+  border-radius: 1em;
+  transition: .5s;
+  width: 10em;
+  cursor: pointer;
+  border: .2em solid transparent;
+}
+
+.slider__photo_medium_module:hover {
+  filter: opacity(70%);
+}
+
+.slider__active_photo {
+  filter: opacity(70%);
+  border: .2em solid var(---first-them-color);
 }
 
 /* ---------- info ----------*/

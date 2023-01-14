@@ -1,9 +1,10 @@
+import {createSliderArrows} from "./common.js";
+
 const render = (element, number) => {
   element.src = `assets/images/image-product-${number}.jpg`;
 }
 
 const sliderInit = (state, slider, mainPhoto, mediumPhotos) => {
-  state.sliderMainPhoto = mainPhoto.src.at(-5);
   mediumPhotos.forEach(photo => {
     if (mainPhoto.src.at(-5) === photo.src.at(-15)) {
       photo.classList.add('slider__active_photo');
@@ -15,9 +16,9 @@ const sliderInit = (state, slider, mainPhoto, mediumPhotos) => {
   })
 }
 
-const sliderAddActive = (slider, mainPhoto, mediumPhotos) => {
+const sliderAddActive = (slider, mainPhoto, mediumPhotos, compare) => {
   slider.addEventListener('click', function (event) {
-    if (event.target.className === 'slider__photo_medium') {
+    if (event.target.className === compare) {
       mediumPhotos.forEach(item => {
         item.classList.remove('slider__active_photo')
       })
@@ -30,14 +31,16 @@ const sliderAddActive = (slider, mainPhoto, mediumPhotos) => {
 
 const closeSliderModuleWindow = () => {
   const background = document.querySelector('.slider__background_all');
-  background.parentNode.removeChild(background);
   const slider = document.querySelector('.slider__section_module');
-  slider.parentNode.removeChild(slider);
   const closeButton = document.querySelector('.slider__close_button');
-  closeButton.parentNode.removeChild(closeButton);
+  if (background && slider && closeButton) {
+    background.parentNode.removeChild(background);
+    slider.parentNode.removeChild(slider);
+    closeButton.parentNode.removeChild(closeButton);
+  }
 }
 
-const sliderModuleWindow = (state, slider, mainPhoto, mediumPhotos) => {
+const sliderModuleWindow = (state, mainPhoto) => {
   mainPhoto.addEventListener('click', function (event) {
     const background = document.createElement('div');
     background.className = 'slider__background_all';
@@ -46,26 +49,26 @@ const sliderModuleWindow = (state, slider, mainPhoto, mediumPhotos) => {
     const slider = document.createElement('section');
     slider.className = 'slider__section_module'
     slider.innerHTML = `
-      <div class="slider__main_photo">
+      <div>
         <img src="assets/images/image-product-1.jpg"
-             class="slider__photo_large" alt="image-product">
+             class="slider__photo_large_module" alt="image-product">
       </div>
-      <ul class="slider flex flex__center_space_between">
+      <ul class="slider_module flex flex__center_space_between">
         <li>
           <img src="assets/images/image-product-1-thumbnail.jpg"
-               class="slider__photo_medium" alt="image-product">
+               class="slider__photo_medium_module" alt="image-product">
         </li>
         <li>
           <img src="assets/images/image-product-2-thumbnail.jpg"
-               class="slider__photo_medium" alt="image-product">
+               class="slider__photo_medium_module" alt="image-product">
         </li>
         <li>
           <img src="assets/images/image-product-3-thumbnail.jpg"
-               class="slider__photo_medium" alt="image-product">
+               class="slider__photo_medium_module" alt="image-product">
         </li>
         <li>
           <img src="assets/images/image-product-4-thumbnail.jpg"
-               class="slider__photo_medium" alt="image-product">
+               class="slider__photo_medium_module" alt="image-product">
         </li>
       </ul>`;
     background.append(slider);
@@ -73,8 +76,15 @@ const sliderModuleWindow = (state, slider, mainPhoto, mediumPhotos) => {
     const closeButton = document.createElement('button');
     closeButton.className = 'slider__close_button';
     closeButton.innerHTML = '&times;';
-    closeButton.addEventListener('click', () => closeSliderModuleWindow())
-    background.append(closeButton)
+    closeButton.addEventListener('click',
+      () => closeSliderModuleWindow())
+    slider.append(closeButton)
+
+    const mainPhotoModule = slider.querySelector('.slider__photo_large_module');
+    const mediumPhotosModule = slider.querySelectorAll('.slider__photo_medium_module');
+    sliderInit(state, slider, mainPhotoModule, mediumPhotosModule);
+    sliderAddActive(slider, mainPhotoModule, mediumPhotosModule, 'slider__photo_medium_module');
+    // createSliderArrows(slider, mainPhotoModule, state);
   })
 }
 
@@ -83,6 +93,6 @@ export default function slider(state) {
   const mainPhoto = slider.querySelector('.slider__photo_large');
   const mediumPhotos = slider.querySelectorAll('.slider__photo_medium');
   sliderInit(state, slider, mainPhoto, mediumPhotos);
-  sliderAddActive(slider, mainPhoto, mediumPhotos);
-  sliderModuleWindow(state, slider, mainPhoto, mediumPhotos);
+  sliderAddActive(slider, mainPhoto, mediumPhotos, 'slider__photo_medium');
+  if (window.innerWidth > 768) sliderModuleWindow(state, mainPhoto);
 }
