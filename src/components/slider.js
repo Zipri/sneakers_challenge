@@ -1,5 +1,3 @@
-import {createSliderArrows} from "./common.js";
-
 const render = (element, number) => {
   element.src = `assets/images/image-product-${number}.jpg`;
 }
@@ -38,6 +36,45 @@ const closeSliderModuleWindow = () => {
     slider.parentNode.removeChild(slider);
     closeButton.parentNode.removeChild(closeButton);
   }
+}
+
+const observeSelectedImage = (mediumPhotos, image) => {
+  mediumPhotos.forEach(item => {
+    item.classList.remove('slider__active_photo')
+    if (image.src.at(-5) === item.src.at(-15)) {
+      item.classList.add('slider__active_photo');
+    }
+  })
+}
+
+const createSliderArrows = (slider, image, state, mediumPhotos) => {
+  let arrows = document.createElement('div');
+  arrows.className = 'slider__arrows_pc';
+  arrows.innerHTML = `
+    <button data-arrow-prev class="slider__arrows__arrow slider__arrow_pc">
+      <img src="assets/images/icon-previous.svg" alt="prev">
+    </button>
+    <button data-arrow-next class="slider__arrows__arrow slider__arrow_pc">
+      <img src="assets/images/icon-next.svg" alt="next">
+    </button>`;
+  slider.prepend(arrows);
+  let imageNumber = +image.src.at(-5);
+  arrows.querySelector('button[data-arrow-prev]').addEventListener('click', () => {
+    if (imageNumber > 1) {
+      imageNumber -= 1;
+      image.src = `assets/images/image-product-${imageNumber}.jpg`;
+      state.sliderMainPhoto = imageNumber;
+      observeSelectedImage(mediumPhotos, image);
+    }
+  });
+  arrows.querySelector('button[data-arrow-next]').addEventListener('click', () => {
+    if (imageNumber < 4) {
+      imageNumber += 1;
+      image.src = `assets/images/image-product-${imageNumber}.jpg`;
+      state.sliderMainPhoto = imageNumber;
+      observeSelectedImage(mediumPhotos, image);
+    }
+  });
 }
 
 const sliderModuleWindow = (state, mainPhoto) => {
@@ -84,7 +121,7 @@ const sliderModuleWindow = (state, mainPhoto) => {
     const mediumPhotosModule = slider.querySelectorAll('.slider__photo_medium_module');
     sliderInit(state, slider, mainPhotoModule, mediumPhotosModule);
     sliderAddActive(slider, mainPhotoModule, mediumPhotosModule, 'slider__photo_medium_module');
-    // createSliderArrows(slider, mainPhotoModule, state);
+    createSliderArrows(slider, mainPhotoModule, state, mediumPhotosModule);
   })
 }
 

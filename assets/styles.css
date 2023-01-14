@@ -117,6 +117,16 @@ button {
     padding: 0 2em;
 }
 
+.slider__arrows_pc {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 115%;
+  left: -8%;
+  top: 40%;
+  padding: 0 2em;
+}
+
 .slider__arrows__arrow {
     text-align: center;
     background-color: white;
@@ -124,6 +134,11 @@ button {
     height: 3em;
     border-radius: 50%;
     transition: .5s;
+}
+
+.slider__arrow_pc {
+  width: 6em;
+  height: 6em;
 }
 
 .slider__arrows__arrow:hover {
@@ -223,7 +238,7 @@ button {
 }
 
 .slider__active_photo {
-    filter: opacity(70%);
+    filter: opacity(45%);
     border: .2em solid var(---first-them-color);
 }
 
